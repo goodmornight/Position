@@ -1,0 +1,82 @@
+<!--pages/check/check.wxml-->
+<van-notify id="van-notify" />
+<van-dialog id="van-dialog"/>
+<view class="check-con">
+	<view class="timeline-con">
+		<view class="timeline-item-l">
+			<view class="circle {{currentData>=0?'circle-active':''}}">
+				1
+			</view>
+			<text class="timeline-title {{currentData>=0?'timeline-title-active':''}}">
+      身份验证
+      </text>
+		</view>
+		<view class="timeline-line {{currentData>0?'timeline-line-active':''}}">
+		</view>
+		<view class="timeline-item-r">
+			<view class="circle {{currentData>0?'circle-active':''}}">
+				2
+			</view>
+			<text class="timeline-title {{currentData>0?'timeline-title-active':''}}">
+			{{isBind?'修改':'绑定'}}手机号
+			</text>
+		</view>
+	</view>
+	<swiper current="{{currentData}}">
+		<swiper-item catchtouchmove="stopTouchMove">
+			<view class="check-con-item">
+				<view class="title">
+					身份验证
+				</view>
+				<form bindsubmit="idFormSubmit">
+					<input bindinput="onNameInput" class="input-style" name="name" placeholder="请输入姓名" type="text" maxlength="{{20}}"></input>
+					<input bindinput="onIdInput" class="input-style" name="idNum" placeholder="请输入学号" type="number" maxlength="{{11}}"></input>
+					
+					<van-checkbox-group value="{{ checkBox }}" bind:change="onCheckBoxChange">
+						<van-checkbox custom-class="checkbox-class" name="1" icon-size="16" checked-color="#576b95">阅读并同意<text class="link-text" bindtap="toProtocol">《用户服务协议》</text></van-checkbox>
+						<van-checkbox custom-class="checkbox-class" name="2" icon-size="16" checked-color="#576b95">阅读并同意<text class="link-text" bindtap="toPrivacy">《隐私政策》</text></van-checkbox>
+					</van-checkbox-group>
+					
+					<button class="button-style" hover-class="hover-button-style" formType="submit" disabled="{{ifSubmit}}">确 定</button>
+				</form>
+
+			</view>
+
+		</swiper-item>
+		<swiper-item catchtouchmove="stopTouchMove">
+			<view class="check-con-item">
+				<view class="title">
+					{{isBind?'修改':'绑定'}}手机号
+				</view>
+				<swiper current="{{phoneNumCurrentData}}">
+					<swiper-item catchtouchmove="stopTouchMove">
+						<button class="button-style" hover-class="hover-button-style" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信授权绑定</button>
+						<button class="button-style" hover-class="hover-button-style" bindtap="toMessage" disabled="{{!isGetText_today}}">验证码绑定</button>
+					</swiper-item>
+					<swiper-item catchtouchmove="stopTouchMove">
+						<view class="message-con">
+							<form bindsubmit="cellphoneFormSubmit">
+								<input class="input-style" name="phoneNum" bindinput="phoneNumInput" placeholder="请输入手机号" type="number" maxlength="{{11}}"></input>
+								<input class="input-btn-style" name="testNum" bindinput="testNumInput" placeholder="请输入验证码" maxlength="{{6}}">
+								<button size="mini" class="button-inside-style" hover-class="hover-button-style" bindtap="toGetTestNum" disabled="{{!isGetText||!isGetText_today}}">{{inputText}}</button>
+								</input>
+
+								<button class="button-style" hover-class="hover-button-style" formType="submit" disabled="{{!isGetText_today||ifChange}}">确 定</button>
+							</form>
+							<!-- <button size="mini" class="button-inside-style" bindtap="toGetTestNum">获取验证码</button> -->
+						</view>
+						<!-- <button size="mini" class="button-inside-style" bindtap="toGetTestNum">获取验证码</button> -->
+					</swiper-item>
+				</swiper>
+				<!-- <form bindsubmit="cellphoneFormSubmit">
+          <input class="input-style" placeholder="请输入手机号"></input>
+          <input class="input-btn-style" placeholder="请输入验证码">
+          <button size="mini" class="button-inside-style">获取验证码</button>
+          </input>
+          <button class="button-style" formType="submit">确 定</button>
+        </form> -->
+			</view>
+		</swiper-item>
+	</swiper>
+
+</view>

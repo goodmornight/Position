@@ -1,0 +1,127 @@
+<!--pages/form/form.wxml-->
+<import src="../../temp/confirm-item/confirm-item.wxml" />
+<van-notify id="van-notify" />
+<van-dialog id="van-dialog" confirm-button-color="#576b95"/>
+<van-cell-group>
+	<van-cell title-class="cellgroup-title-class" value-class="cellgroup-value-class" title="打卡日期" value="{{today.str_ch}}"/>
+	<van-cell value-class="cellgroup-value-class" value="{{addressInfo.address==''?'点击选择':addressInfo.address}}" clickable="{{!isToday}}" open-type="userLocation" bind:click="onLocation">
+		<view slot="title" class="cellgroup-title-class">
+				所在地点<van-icon name="../../images/icons/must.svg" /></view>
+		<van-icon slot="right-icon" name="location" color="#576b95" size="25px" class="custom-icon" />
+	</van-cell>
+	<van-collapse value="{{ activeName }}" bind:change="onChange" accordion>
+		<van-collapse-item name="1" clickable="{{!isToday}}" disabled="{{isToday}}">
+			<view slot="title" class="cellgroup-title-class">
+				身体状况<van-icon name="../../images/icons/must.svg" /></view>
+			<view slot="value" class="cellgroup-value-class">{{health.short_content==null?'点击选择':health.short_content}}</view>
+			<van-radio-group value="{{ healthRadio }}" bind:change="onHealthRadioChange">
+				<van-cell-group border="{{false}}" custom-class="popup_cellgroup">
+					<block wx:for="{{healthRadioList}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+						<van-cell border="{{false}}" title="{{item.content}}" clickable data-name="{{item.id}}" bind:click="onHealthRadioClick">
+							<van-radio slot="right-icon" checked-color="#576b95" icon-size="22px" name="{{item.id}}" />
+						</van-cell>
+					</block>
+				</van-cell-group>
+			</van-radio-group>
+		</van-collapse-item>
+		<van-collapse-item name="2" clickable="{{!isToday}}" disabled="{{isToday}}">
+			<view slot="title" class="cellgroup-title-class">
+				14天内是否有以下情况<van-icon name="../../images/icons/must.svg" /></view>
+			<view slot="value" class="cellgroup-value-class">{{daysDiff.short_content==null?'点击选择':daysDiff.short_content}}</view>
+			<van-radio-group value="{{ daysRadio }}" bind:change="on14DaysRadioChange">
+				<van-cell-group border="{{false}}" custom-class="popup_cellgroup">
+					<block wx:for="{{daysRadioList}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+						<van-cell border="{{false}}" title-class="radio-class" title="{{item.content}}" clickable data-name="{{item.id}}" bind:click="on14DaysRadioClick">
+							<van-radio slot="right-icon" checked-color="#576b95" icon-size="22px" name="{{item.id}}" />
+						</van-cell>
+					</block>
+				</van-cell-group>
+			</van-radio-group>
+		</van-collapse-item>
+		<van-collapse-item name="3" clickable="{{!isToday}}" disabled="{{isToday}}">
+			<view slot="title" class="cellgroup-title-class">
+				就医记录<van-icon name="../../images/icons/must.svg" /></view>
+			<view slot="value" class="cellgroup-value-class">{{hospital.short_content==null?'点击选择':hospital.short_content}}</view>
+			<van-radio-group value="{{ hospitalRadio }}" bind:change="onHospitalRadioChange">
+				<van-cell-group border="{{false}}" custom-class="popup_cellgroup">
+					<block wx:for="{{hospitalRadioList}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+						<van-cell border="{{false}}" title-class="radio-class" title="{{item.content}}" clickable data-name="{{item.id}}" bind:click="onHospitalRadioClick">
+							<van-radio slot="right-icon" checked-color="#576b95" icon-size="22px" name="{{item.id}}" />
+						</van-cell>
+					</block>
+				</van-cell-group>
+			</van-radio-group>
+		</van-collapse-item>
+		<van-collapse-item name="4" clickable="{{!isToday}}" disabled="{{isToday}}">
+			<view slot="title" class="cellgroup-title-class">
+				今日乘坐交通工具情况</view>
+			<view slot="value" class="cellgroup-value-class">{{ trafficContent==''?'点击输入':trafficContent }}</view>
+			<input bindinput="onInputTraffic" maxlength="{{15}}" class="input-class" placeholder-class="placeholder-class" placeholder="请输入航班号/列车号"></input>
+		</van-collapse-item>
+		<van-collapse-item name="5" clickable="{{!isToday}}" disabled="{{isToday}}">
+			<view slot="title" class="cellgroup-title-class">
+				其他</view>
+			<view slot="value" class="cellgroup-value-class">{{ otherContent==''?'点击输入':otherContent }}</view>
+			<input bindinput="onInputOthers" maxlength="{{100}}" class="input-class" placeholder-class="placeholder-class" placeholder="其他与疫情相关的的情况(100字以内)" />		
+		</van-collapse-item>
+	</van-collapse>
+
+</van-cell-group>
+<button class="button-style form-button" hover-class="hover-button-style" disabled="{{isToday||!locationEnd}}" bindtap="toCompleted"><van-loading wx:if="{{loading_show}}" size="15px" type="spinner" />完成打卡</button>
+
+<van-popup show="{{ check_show }}" round position="bottom" custom-style="font-weight:bold;font-size:30rpx;">
+	<view class="tip">
+		<view class="tip-title">提示</view>
+		<view class="tip-content">需要获取用户权限</view>
+
+	</view>
+	<button class="popup-button-style" hover-class="hover-button-style" bindtap="onConfirm">确认无误</button>
+</van-popup>
+<van-popup show="{{ confirm_show }}" round position="bottom" custom-style="font-weight:bold;font-size:30rpx;" bind:close="onConfirmHide">
+	<view class="tip">
+		<view class="tip-title">提示</view>
+		<view class="tip-content">每日只可提交一次，提交后将无法修改。</view>
+
+	</view>
+	<button class="popup-button-style" hover-class="hover-button-style" bindtap="onConfirm">确认无误</button>
+</van-popup>
+
+<van-popup show="{{ setting_show }}" round position="bottom" custom-style="" bind:close="onSettingClose">
+	<view class="setting-con">
+		<view class="setting-title">获取位置失败</view>
+		<view class="setting-content">
+			<view>1.请点击下面的按钮
+			</view>
+			<van-icon name="down" color="#ccc" size="25px" />
+			<view>2.进入授权设置页面
+			</view>
+			<van-icon name="down" color="#ccc" size="25px" />
+			<view>3.打开“使用我的地理位置”开关
+			</view>
+			<view class="tips-text">（开关颜色为绿色，即为“打开状态”）
+			</view>
+		</view>
+		<button class="popup-button-style" hover-class="hover-button-style" bindtap="onSetting">授权设置</button>
+	</view>
+</van-popup>
+<van-popup show="{{ sendSetting_show}}" round position="bottom" custom-style="" bind:close="onSendSettingClose">
+	<view class="setting-con">
+		<view class="setting-title">每日打卡提醒</view>
+		<view class="setting-content">
+			<view>1.请点击下面的按钮
+			</view>
+			<van-icon name="down" color="#ccc" size="25px" />
+			<view>2.进入授权设置页面
+			</view>
+			<van-icon name="down" color="#ccc" size="25px" />
+			<view>3.进入“消息订阅”
+			</view>
+			<van-icon name="down" color="#ccc" size="25px" />
+			<view>3.打开“接收订阅消息”开关
+			</view>
+			<view class="tips-text">（TIPS：打开每日提醒，可以避免您错过打卡时间）
+			</view>
+		</view>
+		<button class="popup-button-style" hover-class="hover-button-style" bindtap="onSetting">授权设置</button>
+	</view>
+</van-popup>

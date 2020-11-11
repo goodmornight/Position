@@ -1,0 +1,86 @@
+.indexCard-con {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  height: 400rpx;
+  width: 91%;
+  border-radius: 50rpx;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+}
+.card-background{
+  position: absolute;
+  top:0;
+  right: 0;
+  height: 400rpx;
+  width: 100%;
+  border-radius: 50rpx;
+}
+.checkIn-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150rpx;
+  height: 150rpx;
+  background-color: rgba(255,255,255,0.7);
+  border-top-left-radius: 150rpx;
+  border-bottom-right-radius: 50rpx;
+}
+.checkIn-btn text{
+  position: absolute;
+  bottom:40rpx;
+  right:30rpx;
+  color: #576b95;
+  font-weight: bolder;
+  font-size: 32rpx;
+}
+/* .red-text{
+  color: #c02c38;
+} */
+.indexCard-con .top-text {
+  position: absolute;
+  top: 40rpx;
+  left: 60rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 40rpx;
+  color:#fff;
+}
+
+.indexCard-con .bottom-text {
+  position: absolute;
+  bottom: 50rpx;
+  left: 50rpx;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  text-align: left;
+}
+
+.indexCard-con .card-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 50rpx;
+  margin-left: 10rpx;
+  color: #eee;
+}
+
+.indexCard-con .card-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  width: 160rpx;
+  height: 80rpx;
+  border: 1px #fff solid;
+  border-radius: 80rpx;
+  margin-top: 15rpx;
+}
+
+.indexCard-con .card-btn text {
+  margin-left: 20rpx;
+  line-height: 32rpx;
+}

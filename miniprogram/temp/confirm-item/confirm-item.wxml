@@ -1,0 +1,14 @@
+<template name="confirmItem-temp">
+  <view style="transition:all {{time}}ms ease {{time}}ms;" class="confirmItem-con">
+    <view class="confirmItem-front">
+      <view class="confirmItem-circle"></view>
+      <!-- <van-loading custom-class="confirmItem-loading" type="spinner" color="#576b95" size="12px" /> -->
+    </view>
+
+
+    <view class="confirmItem-text">
+      <view class="confirmItem-text-title">{{title}}:</view>
+      <view class="confirmItem-text-content">{{content}}</view>
+    </view>
+  </view>
+</template>

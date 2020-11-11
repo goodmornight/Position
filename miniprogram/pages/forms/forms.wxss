@@ -1,0 +1,162 @@
+/* miniprogram/pages/forms/forms.wxss */
+/* pages/form/form.wxss */
+@import "../../style/common.wxss";
+@import "../../temp/confirm-item/confirm-item.wxss";
+
+.cellgroup-title-class {
+  color: #576b95;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.cellgroup-value-class {
+  /* color:#576b95; */
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.field-class {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.popup_cellgroup {
+  /* margin-top:3%; */
+  color: #576b95;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.radio-class {
+  /* color:#576b95; */
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.form-button {
+  margin-top: 100rpx;
+}
+
+.setting-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.setting-con .setting-title {
+  color: #576b95;
+  font-size: 42rpx;
+  font-weight: bold;
+}
+
+.setting-con .setting-content {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-top: 30rpx;
+}
+
+.setting-con .setting-content text {
+  line-height: 30rpx;
+}
+
+.popup-button-style {
+  color: #fff;
+  background-color: #576b95;
+  font-weight: bold;
+  font-size: 36rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0;
+  border-radius: 100rpx;
+  margin: 30rpx 0;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.confirm-con {
+  width: 80%;
+  height: 70%;
+  background-color: #fff;
+  border-radius: 50rpx;
+  padding: 15px 10px;
+}
+
+.tip {
+  width: 90%;
+  /* border-top: 1px dashed #333; */
+  color: #576b95;
+  /* font-size: 32rpx; */
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10rpx;
+  margin-top: 20rpx;
+}
+
+.tip-title {
+  font-size: 44rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+
+}
+
+.tip-content {
+  color: #000;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-top: 10rpx;
+
+}
+
+.confirm-button-style {
+  color: #fff;
+  background-color: #576b95;
+  font-weight: bold;
+  font-size: 36rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0;
+  border-radius: 100rpx;
+  margin-top: 50rpx;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.tips-text {
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+.input-class{
+  color:#000;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.placeholder-class {
+  font-size: 30rpx;
+}
+
+/* .cell-input-class{
+  position: relative;
+  width: 100%;
+  padding:12px 10px;
+}
+.cell-input-class text{
+  position: absolute;
+  top:0;
+  left:30rpx;
+  color:#576b95;
+  font-weight: bold;
+  font-size:30rpx;
+}
+.cell-input-class input{
+  position: absolute;
+  top:0;
+  right:30rpx;
+} */

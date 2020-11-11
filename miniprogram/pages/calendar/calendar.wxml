@@ -1,0 +1,52 @@
+<!--pages/calendar/calendar.wxml-->
+<!-- 日历年月 -->
+<!-- <image wx:if="{{height>650}}" class="back-img" src="cloud://position-release-t8oyl.706f-position-release-t8oyl-1301301645/index-imgs/{{today.date%7}}.jpg"></image> -->
+<image wx:if="{{height>650}}" class="back-img" src="{{imgURL}}{{today.date%7}}.jpg"></image>
+<!-- <image wx:if="{{height>650}}" class="back-img" src="cloud://position-9cjeb.706f-position-9cjeb-1301301645/index-imgs/{{today.date%7}}.jpg"></image> -->
+<view class="calendar-con">
+	<view class="avatar-circle">
+	</view>
+	<open-data class="avatar" default-avatar="./../images/icons/{{userInfo.gender==2?'girl':'boy'}}.png" type="userAvatarUrl"></open-data>
+	<view class='calendar_title'>
+		<view style="width:35px;height:35px;" hover-class="hover-button-style">
+			<image src="../../images/icons/arrow-left.svg" bindtap="lastMonth"></image>
+		</view>
+
+		<view class="title_text">{{year}}年{{month}}月</view>
+		<view style="width:35px;height:35px;" hover-class="hover-button-style">
+			<image src="../../images/icons/arrow-right.svg" bindtap="nextMonth"></image>
+		</view>
+	</view>
+	<!-- 日历主体 -->
+	<view class='calendar'>
+		<view class='header'>
+			<view wx:for='{{date}}' wx:key='' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}
+			</view>
+		</view>
+
+		<view class='date-box'>
+			<block wx:for='{{dateArr}}' wx:key=''>
+				<view class='{{item.isCompleted?"completedDay":(isToday == item.isToday ? "nowDay" : "")}}' hover-class='{{item.isCompleted?"hover-button-style":(isToday == item.isToday ? "hover-button-style" : "")}}'>
+					<view class='date-head' bindtap='toTheDay' data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}' data-completed="{{item.isCompleted}}" data-createTime='{{item.createTime}}'>
+						<view>{{item.dateNum}}</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	</view>
+	<view class="info-con">
+		<view class="info-item">
+			<view class="info-title">本月打卡</view>
+			<view class="info-content">
+				<text class="info-num">{{total_month}}</text>天</view>
+		</view>
+		<view class="info-item">
+			<view class="info-title">累计打卡</view>
+			<view class="info-content">
+				<text class="info-num">{{total_all}}</text>天</view>
+		</view>
+	</view>
+	<view wx:if="{{height>600}}" style="height:78rpx;">
+	</view>
+
+</view>

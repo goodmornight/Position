@@ -1,0 +1,59 @@
+.input-style {
+  width: 500rpx;
+  height: 100rpx;
+  background-color: #fff;
+  line-height: 100rpx;
+  text-align: left;
+  border-radius: 100rpx;
+  padding: 0 40rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.input-btn-style {
+  position: relative;
+  width: 500rpx;
+  height: 100rpx;
+  background-color: #fff;
+  line-height: 100rpx;
+  text-align: left;
+  border-radius: 100rpx;
+  padding: 0 40rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.button-inside-style {
+  position: absolute;
+  top:-30rpx;
+  right: 10rpx;
+  height: 80rpx;
+  line-height: 80rpx!important;
+  border-radius: 80rpx;
+  color: #fff;
+  background-color: #576b95;
+  transform: translateY(50%);
+  padding:0;
+  margin:0;
+  font-weight: 300;
+  z-index:2;
+}
+
+.button-style {
+  color: #fff;
+  background-color: #576b95;
+  font-weight:bold;
+  font-size: 36rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0;
+  border-radius: 100rpx;
+  margin-top: 60rpx;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+}
+button[size='mini']{
+  line-height: 80rpx;
+}
+.hover-button-style{
+  opacity: 0.8;
+}

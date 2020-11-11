@@ -1,0 +1,204 @@
+/* pages/calendar/calendar.wxss */
+@import "../../style/common.wxss";
+page {
+  background-color: #d8e3e7;
+}
+
+.calendar-con {
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.back-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  /* width: 375rpx; */
+}
+
+.avatar-circle {
+  position: absolute;
+  top: -60rpx;
+  margin: 0 auto;
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+  z-index: -1;
+}
+
+.avatar {
+  position: absolute;
+  top: -60rpx;
+  margin: 0 auto;
+  width: 120rpx;
+  height: 120rpx;
+  border: 7px #fff solid;
+  border-radius: 100%;
+  overflow: hidden;
+  /* box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1); */
+}
+
+.calendar_title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  color: #576b95;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 100rpx;
+  height: 120rpx;
+  /* background-color: #576b95; */
+}
+
+.title_text {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.calendar_title image {
+  width: 35px;
+  height: 35px;
+}
+
+/* 日历 */
+
+.calendar {
+  width: 100%;
+  /* margin-top: 75rpx; */
+  background: #fff;
+  /* color:#576b95; *//* border-bottom-right-radius: 50rpx; *//* border-bottom-left-radius: 50rpx; */
+  padding: 0 0 20rpx;
+}
+
+.header {
+  font-size: 0;
+  width: 90%;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.header>view {
+  display: inline-block;
+  width: 14.285%;
+  height: 50rpx;
+  color: #576b95;
+  font-size: 30rpx;
+  text-align: center;
+  border-bottom: 1px solid #d0d0d0;
+  border-top: 1px solid #d0d0d0;
+  padding: 20rpx 0;
+}
+
+.weekMark {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.weekMark view {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 2px solid #576b95;
+}
+
+.date-box {
+  font-size: 0;
+  padding: 10rpx 0;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.date-box>view {
+  position: relative;
+  display: inline-block;
+  width: 14.285%;
+  height: 90rpx;
+  color: #666;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.date-head {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 12pt;
+}
+
+.nowDay .date-head {
+  width: 60rpx;
+  border-radius: 50%;
+  border:1px dashed #576b95;
+  text-align: center;
+  /* color: #fff; */
+  font-weight: bold;
+  /* background-color: #576b95; */
+  margin: 0 auto;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.completedDay .date-head {
+  width: 60rpx;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  background-color: #576b95;
+  margin: 0 auto;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.info-con {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  width: 90%;
+  margin: 0rpx auto;
+  padding: 20rpx;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.info-con .info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 300rpx;
+  height: 130rpx;
+  margin: 0 auto;
+}
+
+.info-title {
+  color: #666;
+  font-size: 34rpx;
+  font-weight: bold;
+  height: 60rpx;
+}
+
+.info-content {
+  color: #666;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.info-content .info-num {
+  color: #576b95;
+  font-size: 40rpx;
+  font-weight: bold;
+}

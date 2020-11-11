@@ -1,0 +1,60 @@
+<!--pages/share/share.wxml-->
+<view class="share-con-all">
+	<van-notify id="van-notify" />
+	<view class="top-img-con">
+		<!-- <image src="cloud://position-release-t8oyl.706f-position-release-t8oyl-1301301645/index-imgs/{{img_num}}.jpg"></image> -->
+		<!-- <image src="cloud://position-9cjeb.706f-position-9cjeb-1301301645/index-imgs/{{img_num}}.jpg"></image> -->
+		<image src="{{imgURL}}{{img_num}}.jpg"></image>
+	</view>
+	<!-- <image src="{{userInfo.avatarUrl}}"></image> -->
+	<view class="share-con">
+		<open-data class="avatar" default-avatar="../../images/icons/{{userInfo.gender==2?'girl':'boy'}}.png" type="userAvatarUrl"></open-data>
+		<open-data class="nickName" default-text="打卡用户" type="userNickName"></open-data>
+		<view class="time-con">
+			<view class="time-l">
+				<image src="../../images/icons/time.svg"></image>
+				<text class="time-text">{{today.time_num}}</text>
+			</view>
+			<view class="time-r">
+				<text class="time-text">打卡第{{continueDays}}天</text>
+			</view>
+		</view>
+		<view class="share-card-con">
+			<view class="share-card-title">易感指数</view>
+
+			<view class="share-card-num {{regionalIndex<=60?'green-num':((regionalIndex>60&&regionalIndex<=80)?'orange-num':'red-num')}}">{{regionalIndex}}</view>
+			<van-tag wx:if="{{regionalIndex<=60}}" round plain color="#61ac85">较低</van-tag>
+			<van-tag wx:elif="{{regionalIndex>60&&regionalIndex<=80}}" round plain color="#fba414">较高</van-tag>
+			<van-tag wx:else round plain color="#c02c38">偏高</van-tag>
+
+			<view class="share-card-content">{{text}}</view>
+
+				<image class="ewm" src="../../images/canvas-imgs/ewm.png"></image>
+				<view class="share-card-time">{{today.str_dot}}</view>
+				<!-- <view class="download-con"> -->
+				<button class="download-button" open-type="getUserInfo" bindgetuserinfo="renderToCanvas">
+					<image class="download-icon" src="../../images/icons/downloadImg.svg"></image>
+				</button>
+				<!-- <image class="download-icon" bindtap="renderToCanvas" src="../../images/icons/downloadImg.svg"></image> -->
+				<!-- </view> -->
+
+			</view>
+			<view class="final-share-con">
+				<button class="final-share-button-style" hover-class="hover-button-style" bindtap="toHome">
+					<text>返回</text>
+					<image src="../../images/icons/back.svg"></image>
+				</button>
+				<!-- <button class="final-share-button-style" open-type="getUserInfo" bindgetuserinfo="renderToCanvas">
+					<image src="../../images/icons/save.svg"></image>
+				</button> -->
+				<button class="final-share-button-style" hover-class="hover-button-style" open-type="share">
+					<text>分享</text>
+					<image src="../../images/icons/share.svg"></image>
+				</button>
+			</view>
+
+			<view class="hidden-canvas">
+				<wxml-to-canvas class="widget"></wxml-to-canvas>
+			</view>
+		</view>
+	</view>

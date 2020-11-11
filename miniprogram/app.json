@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/check/check",
+    "pages/protocol/protocol",
+    "pages/privacy/privacy",
+    
+    
+    "pages/welcome/welcome",
+    "pages/forms/forms",
+    "pages/form/form",
+    "pages/calendar/calendar",
+    "pages/share/share"
+    
+  ],
+  "window": {
+    "backgroundColor": "#d8e3e7",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#d8e3e7",
+    "navigationBarTitleText": "疫卡通",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-cell": "dist/cell/index",
+    "van-cell-group": "dist/cell-group/index",
+    "van-tag": "dist/tag/index",
+    "van-icon": "dist/icon/index",
+    "van-field": "dist/field/index",
+    "van-popup": "dist/popup/index",
+    "van-radio": "dist/radio/index",
+    "van-radio-group": "dist/radio-group/index",
+    "van-overlay": "dist/overlay/index",
+    "van-notify": "dist/notify/index",
+    "van-button": "dist/button/index",
+    "van-loading": "dist/loading/index",
+    "van-transition": "dist/transition/index",
+    "van-collapse": "dist/collapse/index",
+    "van-collapse-item": "dist/collapse-item/index",
+    "van-toast": "dist/toast/index",
+    "van-checkbox": "dist/checkbox/index",
+    "van-checkbox-group": "dist/checkbox-group/index",
+    "van-dialog": "dist/dialog/index"
+  },
+  "plugins": {},
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于小程序计算您当前易感指数"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

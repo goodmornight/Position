@@ -1,0 +1,19 @@
+<template name="indexCard-temp">
+  <view class="indexCard-con">
+  <image class="card-background" src="{{imgURL}}{{item.date_num%7}}.jpg"></image>
+  <!-- <image class="card-background" src="cloud://position-9cjeb.706f-position-9cjeb-1301301645/index-imgs/{{item.date_num%7}}.jpg"></image> -->
+  <!-- <image class="card-background" src="cloud://position-9cjeb.706f-position-9cjeb-1301301645/index-imgs/{{item.date_num%7}}.jpg"></image> -->
+    <text class="top-text">{{item.id}}/{{length}}</text>
+    <view class="bottom-text">
+      <text class="card-text">{{item.date}}</text>
+      <text class="card-text">{{item.weekday}}</text>
+      <!-- <view class="card-btn">
+        <text>未完成</text>
+        <van-icon name="arrow" />
+      </view> -->
+    </view>
+    <view class="checkIn-btn" hover-class="hover-button-style" bindtap="toForm" data-item="{{item}}">
+    <text>{{item.isPushed?'详情':'打卡'}}</text>
+    </view>
+  </view>
+</template>

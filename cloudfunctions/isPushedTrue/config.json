@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "openapi": [
+    ]
+  },
+  "triggers": [
+    {
+      "name": "changeIsPushedTrigger",
+      "type": "timer",
+      "config": "0 59 23 * * * *"
+    }
+  ]
+}

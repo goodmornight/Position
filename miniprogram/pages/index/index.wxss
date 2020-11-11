@@ -1,0 +1,156 @@
+@import "../../style/common.wxss";
+@import "../../temp/index-card/index-card.wxss";
+
+page {
+  background-color: #d8e3e7;
+}
+
+swiper {
+  width: 100%;
+  height: 400rpx;
+}
+
+swiper-item {
+  position: relative;
+  /* display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; */
+}
+
+.index-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* margin-top: 20%; */
+}
+
+.index-con .avatar {
+  width: 200rpx;
+  border-radius: 100%;
+  margin: 30rpx;
+  margin-top: 12%;
+  overflow: hidden;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.index-con .nickName {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #576b95;
+  margin-bottom: 10rpx;
+}
+
+.index-con .phoneNum {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.index-con .phoneNum text {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #576b95;
+}
+
+.index-con .phoneNum image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+}
+
+.sumData-con {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  height: 200rpx;
+  width: 85%;
+  border-radius: 50rpx;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 30rpx;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.sumData-con .sumData-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 150rpx;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.dashed-line {
+  border-right: 1px #576b95 dashed;
+}
+
+.sumData-con .sumData-item .sumData-item-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #576b95;
+  line-height: 30rpx;
+  margin-top: 10%;
+}
+
+.sumData-con .sumData-item .sumData-item-num {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #576b95;
+  line-height: 36rpx;
+  margin-top: 10%;
+}
+
+.title-con {
+  width: 80%;
+  height: 80rpx;
+  position: relative;
+}
+
+.title-con .title-l {
+  position: absolute;
+  top: 6rpx;
+  left: 40rpx;
+  color: #576b95;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.title-con .title-r {
+  position: absolute;
+  right: 10rpx;
+  color: #576b95;
+  font-size: 36rpx;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.title-con .title-r image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+}
+
+.test {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 100%;
+  background-color: #576b95;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.test image {
+  width: 60rpx;
+  height: 60rpx;
+}
